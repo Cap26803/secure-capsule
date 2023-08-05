@@ -8,6 +8,8 @@ Welcome to Secure Capsule, your premier destination for secure message encryptio
 
 With Secure Capsule, you can encrypt any message you want to keep private. Whether it's personal communications, confidential business information, or sensitive data, our platform provides an impenetrable shield to keep your messages safe from prying eyes.
 
+Live Site: https://cap26803.github.io/secure-capsule/
+
 **Key Features:**
 
 1. **Strong Encryption:** Just like our code utilizes the power of CryptoJS, Secure Capsule employs top-notch encryption to transform your messages into indecipherable ciphertext.
