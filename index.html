@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAP - SecureCapsule</title>
+    <!-- Link to Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for the background image */
+        body {
+            background-image: url("abstract.jpg");
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+
+        /* Custom CSS for result data */
+        #resultData {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <div class="container mx-auto p-4 flex flex-col justify-center items-center min-h-screen">
+        <!-- Navigation Bar -->
+        <nav class="w-full p-4 mb-8 bg-black bg-opacity-80">
+            <div class="container mx-auto">
+                <div class="flex justify-center items-center">
+                    <a href="#" class="text-white text-xl font-bold">Message Encryption and Decryption Algorithm</a>
+                    <div class="hidden md:block">
+                        <!-- Add additional navigation links here if needed -->
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="w-full max-w-md">
+            <center><h2 class="text-3xl text-black font-bold mb-8">Secure Capsule</h2></center>
+            
+            <form id="myForm" class="bg-black bg-opacity-70 rounded p-6">
+                <label for="inputData" class="block font-medium text-lg text-white mb-2">Enter a message:</label>
+                <textarea id="inputData" class="w-full px-3 py-2 border rounded-md text-black focus:outline-none focus:border-indigo-500 bg-white" rows="4"></textarea>
+                
+                <div class="flex justify-center space-x-4 mt-6">
+                    <button type="button" id="encryptBtn" class="bg-white text-black font-medium rounded px-4 py-2 hover:bg-green-600 focus:outline-none focus:bg-indigo-600">
+                        Encrypt
+                    </button>
+
+                    <button type="button" id="decryptBtn" class="bg-white text-black font-medium rounded px-4 py-2 hover:bg-red-500 focus:outline-none focus:bg-indigo-600">
+                        Decrypt
+                    </button>
+                </div>
+            </form>
+            
+            <div id="resultDiv" class="mt-6 hidden">
+                <h2 class="text-xl font-bold mb-2">Result:</h2>
+                <p class="text-white text-xs mt-2">Note: Copy the encrypted key and paste it in the main box and click decrypt</p>
+                <div id="resultData" class="bg-gray-800 p-4 rounded text-white"></div>
+            </div>           
+        </div>
+    </div>
+
+    <!-- Link to CryptoJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+    <script>
+        const encryptBtn = document.getElementById('encryptBtn');
+        const decryptBtn = document.getElementById('decryptBtn');
+        const inputData = document.getElementById('inputData');
+        const resultDiv = document.getElementById('resultDiv');
+        const resultData = document.getElementById('resultData');
+
+        encryptBtn.addEventListener('click', () => {
+            // Get the data from the textarea
+            const data = inputData.value;
+
+            // Encrypt the data using CryptoJS (you can use any encryption algorithm supported by CryptoJS)
+            const encryptedData = CryptoJS.AES.encrypt(data, 'secret_key').toString();
+
+            // Display the encrypted data on the page
+            resultData.textContent = `Encrypted Data: ${encryptedData}`;
+
+            // Show the result div
+            resultDiv.classList.remove('hidden');
+        });
+
+        decryptBtn.addEventListener('click', () => {
+            // Get the encrypted data from the textarea
+            const encryptedData = inputData.value;
+
+            // Decrypt the data using CryptoJS
+            const decryptedData = CryptoJS.AES.decrypt(encryptedData, 'secret_key').toString(CryptoJS.enc.Utf8);
+
+            // Display the decrypted data on the page
+            resultData.textContent = `Decrypted Data: ${decryptedData}`;
+
+            // Show the result div
+            resultDiv.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
