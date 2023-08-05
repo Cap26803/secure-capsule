@@ -2,7 +2,7 @@
 
 **Secure Capsule - Protecting Your Encrypted Messages**
 
-![image](https://github.com/Cap26803/secure-capsule/assets/106472393/12364864-f286-4450-ab79-dbd5fbf67fa1)
+![image](https://github.com/Cap26803/secure-capsule/assets/106472393/a71f01f2-3e3d-477e-85ca-2f0087c8fbd3)
 
 Welcome to Secure Capsule, your premier destination for secure message encryption and decryption. Our cutting-edge platform leverages advanced encryption algorithms, just like the ones in our code, to ensure that your sensitive messages remain confidential and secure.
 
